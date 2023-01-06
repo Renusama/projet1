@@ -87,7 +87,7 @@
 				  
 	NE PAS LIRE LE DESSUS {cA COMMENCE ICI}
 			
-			public static int Meilleurcoup(String[][][] plateau, String Pa, String Ja, String Pe) { 
+			public static int Danger(String[][][] plateau, String Pa, String Ja, String Pe) { 
 		
         boolean meilleurcoup = false;
         int i, j, k;
@@ -131,40 +131,72 @@
 		   meilleurcoup = true;
 		   
                   } else if ((plateau[2][1][1] == Pa) && (plateau[2][0][0] == Pa || plateau[2][0][2] == Pa)) {  
-                 plateau[2][2][2] = Pe || plateau[2][2][0] = Pe;
+                 plateau[2][2][2] = Pe; 
+		  } else if ((plateau[2][1][1] == Pa) && (plateau[2][0][0] == Pa || plateau[2][0][2] == Pa)) {  
+		 plateau[2][2][0] = Pe;
 	        } else if ((plateau[2][1][1] == Pa) && (plateau[2][2][2] == Pa || plateau[2][2][0] == Pa)) {
-		  plateau[2][0][0] = Pe || plateau[2][0][2] = Pe;
-		     meilleurcoup = true;
+		  plateau[2][0][0] = Pe 
+		   } else if ((plateau[2][1][1] == Pa) && (plateau[2][2][2] == Pa || plateau[2][2][0] == Pa)) {
+		  plateau[2][0][2] = Pe;
+		  meilleurcoup = true;
 		    
 		  } else if ((plateau[1][0][1] == Pa) && (plateau[0][0][0] == Pa || plateau[0][0][2] == Pa)) {  
-                 plateau[2][0][2] = Pe || plateau[2][0][0] = Pe;
-	        } else if ((plateau[1][0][1] == Pa) && (plateau[2][0][2] == Pa || plateau[2][0][0] == Pa)) {
-		  plateau[0][0][0] = Pe || plateau[0][0][2] = Pe;
+                 plateau[2][0][2] = Pe;
+		  } else if ((plateau[1][0][1] == Pa) && (plateau[0][0][0] == Pa || plateau[0][0][2] == Pa)) { 
+		 plateau[2][0][0] = Pe;
+	       } else if ((plateau[1][0][1] == Pa) && (plateau[0][0][0] == Pa || plateau[0][0][2] == Pa)) { 
+		  plateau[0][0][0] = Pe;
+		  } else if ((plateau[0][1][1] == Pa) && (plateau[0][0][0] == Pa || plateau[0][2][0] == Pa)) {
+		   plateau[0][0][2] = Pe;
                      meilleurcoup = true;
 		     
                    } else if ((plateau[1][1][1] == Pa) && (plateau[0][1][0] == Pa || plateau[0][1][2] == Pa)) {  
-                 plateau[2][1][2] = Pe || plateau[2][1][0] = Pe;
+                 plateau[2][1][2] = Pe;
+		  } else if ((plateau[1][1][1] == Pa) && (plateau[0][1][0] == Pa || plateau[0][1][2] == Pa)) {  
+		 plateau[2][1][0] = Pe;
 	        } else if ((plateau[1][1][1] == Pa) && (plateau[2][1][2] == Pa || plateau[2][1][0] == Pa)) {
-		  plateau[0][1][0] = Pe || plateau[0][1][2] = Pe;
+		  plateau[0][1][0] = Pe;
+		   } else if ((plateau[1][1][1] == Pa) && (plateau[2][1][2] == Pa || plateau[2][1][0] == Pa)) {
+		  plateau[0][1][2] = Pe;
 		   meilleurcoup = true;
 		   
                         } else if ((plateau[1][2][1] == Pa) && (plateau[0][2][0] == Pa || plateau[0][2][2] == Pa)) {  
-                 plateau[2][2][2] = Pe || plateau[2][2][0] = Pe;
+                 plateau[2][2][2] = Pe;
+		  } else if ((plateau[1][2][1] == Pa) && (plateau[0][2][0] == Pa || plateau[0][2][2] == Pa)) {  
+		 plateau[2][2][0] = Pe;
 	        } else if ((plateau[1][1][1] == Pa) && (plateau[2][2][2] == Pa || plateau[2][2][0] == Pa)) {
-		  plateau[0][2][0] = Pe || plateau[0][2][2] = Pe;
+		  plateau[0][2][0] = Pe;
+		  } else if ((plateau[1][1][1] == Pa) && (plateau[2][2][2] == Pa || plateau[2][2][0] == Pa)) {
+		  plateau[0][2][2] = Pe;
 		   meilleurcoup = true;
 		   
                  } else if ((plateau[1][1][1] == Pa) && (plateau[0][0][0] == Pa || plateau[0][0][2] == Pa)) {  
-                 plateau[2][2][2] = Pe || plateau[2][2][0] = Pe;
+                 plateau[2][2][2] = Pe;
+		  } else if ((plateau[1][1][1] == Pa) && (plateau[0][0][0] == Pa || plateau[0][0][2] == Pa)) {  
+		 plateau[2][2][0] = Pe;
 	        } else if ((plateau[1][1][1] == Pa) && (plateau[2][2][2] == Pa || plateau[2][2][0] == Pa)) {
-		  plateau[0][0][0] = Pe || plateau[0][0][2] = Pe;
+		  plateau[0][0][0] = Pe;
+		  } else if ((plateau[1][1][1] == Pa) && (plateau[2][2][2] == Pa || plateau[2][2][0] == Pa)) {
+		  plateau[0][0][2] = Pe;
 		meilleurcoup = true;
 		 
 		 } else if ((plateau[1][1][1] == Pa) && (plateau[0][2][0] == Pa || plateau[0][2][2] == Pa)) {  
-                 plateau[2][0][2] = Pe || plateau[2][0][0] = Pe;
+                 plateau[2][0][2] = Pe;
+		  } else if ((plateau[1][1][1] == Pa) && (plateau[0][2][0] == Pa || plateau[0][2][2] == Pa)) {  
+		 plateau[2][0][0] = Pe;
 	        } else if ((plateau[1][1][1] == Pa) && (plateau[2][0][2] == Pa || plateau[2][0][0] == Pa)) {
-		  plateau[0][2][0] = Pe || plateau[0][2][2] = Pe;
+		  plateau[0][2][0] = Pe;
+		   } else if ((plateau[1][1][1] == Pa) && (plateau[2][0][2] == Pa || plateau[2][0][0] == Pa)) {
+		  plateau[0][2][2] = Pe;
                 meilleurcoup = true;
+		}
+   
+   }
+  }
+  }
+  return meilleurcoup;
+  }
+
                     
 		       
 			  

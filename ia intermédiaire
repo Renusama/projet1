@@ -1,10 +1,11 @@
+(les commentaires d'explication sont en bas)
+
 public class ia intermédiaire{
 
 public static void main (String[] args) {
 
-}
-
-while (p &lt; n &amp;&amp; Danger(JEU, Pa, Pe, Je, Ja) == false) {
+}                                                                                        
+while (p &lt; n &amp;&amp; Danger(JEU, Pa, Pe, Je, Ja) == false) {                         
 int JA = 0;
 if (Js == 6) {
 JA = p % 4; ///*modulo pour definir quel Ja et Ja pour chaque
@@ -92,19 +93,30 @@ plateau[k][0][i] != &quot;O&quot;){
 public static boolean CondVictoire.class (String[][][] plateau; String Pa; String Ja){
 boolean victoire = false;
 int i, j, k;
+
+
 for (k = 0; k &lt; 3; k++) {
 for (i = 0; i &lt; 3; i++) {
+
 if (plateau[k][0][i] == Pa &amp;&amp; plateau[k][1][i] == Pa &amp;&amp; plateau[k][0][i] != &quot;O&quot;) { //victoire
 lignes même taille
 plateau[k][2][i] = Pe;
+meilleurcoup = true;
+break;
+
+
 if (plateau[k][0][i] == Pa &amp;&amp; plateau[k][2][i] == Pa &amp;&amp; plateau[k][0][i] != &quot;O&quot;) { //victoire
 lignes même taille
 plateau[k][1][i] = Pe;
+meilleurcoup = true;
+break;
 
 if (plateau[k][2][i] == Pa &amp;&amp; plateau[k][0][i] != &quot;O&quot;) { // bloquer lorsque 2 pions
 adverses de même taille sont alignés sur la même ligne
 plateau[k][0][i] = Pe;
 meilleurcoup = true;
+break;
+
 
 } else if (plateau[1][k][i] == Pa && plateau[2][k][i] == Pa &amp;&amp; plateau[0][k][i] != &quot;O&quot;) {
 plateau[0][k][i] = Pe;
@@ -112,7 +124,8 @@ if (plateau[1][k][i] == Pa && plateau[0][k][i] == Pa &amp;&amp; plateau[0][k][i]
 plateau[2][k][i] = Pe;
 if (plateau[0][k][i] == Pa && plateau[2][k][i] == Pa &amp;&amp; plateau[0][k][i] != &quot;O&quot;) {
 plateau[1][k][i] = Pe;
-meilleurcoup = true; // bloquer lorsque 2 pions adverses de même taille sont
+meilleurcoup = true;
+break;                      // bloquer lorsque 2 pions adverses de même taille sont
 
 alignés sur la même colonne
 
@@ -123,7 +136,8 @@ if (plateau[0][k][i] == Pa && plateau[2][k][i] == Pa &amp;&amp; plateau[0][k][i]
 plateau[1][k][i] = Pe;
 if (plateau[0][k][i] == Pa &&plateau[1][k][i] == Pa &amp;&amp; plateau[0][k][i] != &quot;O&quot;) {
 plateau[2][k][i] = Pe;
-meilleurcoup = true; // bloquer lorsque 2 pions adverses sont sur la même case
+meilleurcoup = true;
+break;          // bloquer lorsque 2 pions adverses sont sur la même case
 
 } if((plateau[0][1][1] == Pa) &&(plateau[0][0][0] == Pa || plateau[0][2][0] == Pa)) { // 1ere ligne
 
@@ -133,6 +147,8 @@ plateau[0][2][2] = Pe;
 }else if((plateau[0][1][1] == Pa) && (plateau[0][0][0] == Pa || plateau[0][2][0] == Pa)) {
 plateau[0][0][2] = Pe;
 meilleurcoup = true;
+break;
+
 
 } if((plateau[0][1][1] == Pa) && (plateau[0][2][2] == Pa || plateau[0][0][2] == Pa)) {
 
@@ -142,6 +158,8 @@ plateau[0][0][0] = Pe;
 } else if((plateau[0][1][1] == Pa) &&(plateau[0][2][2] == Pa || plateau[0][0][2] == Pa)) {
 plateau[0][2][0] = Pe;
 meilleurcoup = true;
+break;
+
 
 } if((plateau[2][1][1] == Pa) && (plateau[2][0][0] == Pa || plateau[2][0][2] == Pa)){
 while(plateau[2][2][2] = &quot;O&quot;){
@@ -152,6 +170,8 @@ plateau[2][2][2] = Pe;
 while(plateau[2][2][0] = "O"){
 plateau[2][2][0] = Pe;
 meilleurcoup = true;
+break;
+
 
 } if((plateau[2][1][1] == Pa) && (plateau[2][2][2] == Pa || plateau[2][2][0] == Pa)) {
 
@@ -162,6 +182,8 @@ plateau[2][0][0] = Pe;
 
 plateau[2][0][2] = Pe;
 meilleurcoup = true;
+break;
+
 
 } if((plateau[1][0][1] == Pa) && (plateau[0][0][0] == Pa || plateau[0][0][2] == Pa)) {
 while(plateau[2][0][2] = &quot;O&quot;){
@@ -172,6 +194,7 @@ plateau[2][0][2] = Pe;
 
 plateau[2][0][0] = Pe;
 meilleurcoup = true;
+break;
 
 }if((plateau[1][0][1] == Pa) &&(plateau[0][0][0] == Pa || plateau[0][0][2] == Pa)) {
 
@@ -182,6 +205,7 @@ plateau[0][0][0] = Pe;
 plateau[0][0][2] = Pe;
 
 meilleurcoup = true;
+break;
 
 } if((plateau[1][1][1] == Pa) && (plateau[0][1][0] == Pa || plateau[0][1][2] == Pa)) {
 
@@ -193,6 +217,7 @@ plateau[2][1][2] = Pe;
 
 plateau[2][1][0] = Pe;
 meilleurcoup = true;
+break;
 
 } if((plateau[1][1][1] == Pa) && (plateau[2][1][2] == Pa || plateau[2][1][0] == Pa)) {
 
@@ -203,6 +228,7 @@ plateau[0][1][0] = Pe;
 
 plateau[0][1][2] = Pe;
 meilleurcoup = true;
+break;
 
 } if((plateau[1][2][1] == Pa) &amp;&amp; (plateau[0][2][0] == Pa || plateau[0][2][2] == Pa)) {
 while(plateau[2][2][2] = &quot;O&quot;){
@@ -214,6 +240,7 @@ plateau[2][2][2] = Pe;
 
 plateau[2][2][0] = Pe;
 meilleurcoup = true;
+break;
 
 } if((plateau[1][1][1] == Pa) &amp;&amp; (plateau[2][2][2] == Pa || plateau[2][2][0] == Pa)) {
 
@@ -224,6 +251,7 @@ plateau[0][2][0] = Pe;
 
 plateau[0][2][2] = Pe;
 meilleurcoup = true;
+break;
 
 } if((plateau[1][1][1] == Pa) &amp;&amp; (plateau[0][0][0] == Pa || plateau[0][0][2] == Pa)) {
 
@@ -235,18 +263,18 @@ plateau[2][2][2] = Pe;
 
 plateau[2][2][0] = Pe;
 meilleurcoup = true;
+break;
 
 } if((plateau[1][1][1] == Pa) &amp;&amp; (plateau[2][2][2] == Pa || plateau[2][2][0] == Pa)) {
 
 while(plateau[0][0][0] = &quot;O&quot;){
 
 plateau[0][0][0] = Pe;
-} else if((plateau[1][1][1] == Pa) &amp;&amp; (plateau[2][2][2] == Pa || plateau[2][2][0] ==
-
-Pa)) {
+} else if((plateau[1][1][1] == Pa) &amp;&amp; (plateau[2][2][2] == Pa || plateau[2][2][0] == Pa)) {
 
 plateau[0][0][2] = Pe;
 meilleurcoup = true;
+break;
 
 } if((plateau[1][1][1] == Pa) &amp;&amp; (plateau[0][2][0] == Pa || plateau[0][2][2] == Pa)) {
 while(plateau[2][0][2] = &quot;O&quot;){
@@ -257,6 +285,7 @@ plateau[2][0][2] = Pe;
 
 plateau[2][0][0] = Pe;
 meilleurcoup = true;
+break;
 
 } if((plateau[1][1][1] == Pa) &amp;&amp; (plateau[2][0][2] == Pa || plateau[2][0][0] == Pa)) {
 
@@ -267,6 +296,7 @@ else if((plateau[1][1][1] == Pa) &amp;&amp; (plateau[2][0][2] == Pa || plateau[2
 
 plateau[0][2][2] = Pe;
 meilleurcoup = true;
+break;
 
 }
 
@@ -304,3 +334,32 @@ return meilleurcoup;
 }
 }
 }
+
+erreurs:
+dûes au fait que j'ai insérer mon programme dans un document word avant de le copier coller.
+// &quot; = " 
+// &amp; = &
+
+ // j'ai repris la boucle "while" permettant de définir les différentes situations (Joueur ia donc IvI dans ce cas ci) et distribuant les pions de chaque joueur.
+ Par la suite j'ai repris les conditions de victoire que j'avais précédemment développé afin d'y apporter quelques modifications dans le cadre de la défense primaire 
+ de notre intelligence artificielle.
+ La fonction  "public static int Danger(String[][][] plateau; String Pa; String Pe) {"
+ avec:
+ - Pa le pion du joueur réel (humain)
+ - Pe le pion du joueur fictif (ia)
+ - String[][][] plateau définissant dans la fonction les cases.
+ Je suis parti du principe que une ia de niveau intermédiaire serait en mesure de bloquer un coup adverse lorsque celle-ci était en situation de "danger", c'est
+ à dire lorsque le joueur réel avait une possibilité au second tour de gagner.
+ Ainsi, j'ai détaillé au cas par cas toutes les combinaisons possibles sur le plateau.
+ Je m'y suis prise de cette manière: boucle "if"= Si( 2 pions et 2 cases du joueur réel respectent l'alignement d'une condition de victoire)alors
+                                                  tant que la case à bloquer est disponible,"mettre le pion à cet emplacement
+                                                  sinon le mettre dans une autre case (qui bloque également le coup) // soit dans un emplacement de pion différent
+  Si la combinaison est satisfaite et que l'ia place son pion à l'endroit indiqué, on utilise un "break" pour sortir de la séquence d'instructions après que l'on ait indiqué 
+  que la variable meilleurcoup= true (celle-ci étant initialement affectée à un "false")
+  Par là suite on demande à la fonction de renvoyer le meilleurcoup à jouer.
+  
+  Constatations:
+  J'aurai dû pour espérer que le programme soit fonctionnel intégrer ses différentes souches de l'ia dans l'entièreté du programme.
+  
+  
+ 

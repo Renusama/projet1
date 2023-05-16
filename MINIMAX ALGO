@@ -1,0 +1,111 @@
+
+public class titre {
+	
+	public static void main (String[] args) {
+		
+	}
+	importjavautilArrayList  // JAI CHANGé ICI CAR 9A MARCHAIT PAS MAIS à LA BASE CT : import.java.util.Array.list;
+    importjavautilList                                                               import.java.util.List;
+
+class Minimax {
+
+    private static final int MAX_DEPTH = 5;
+
+    public static void main(String[] args) {
+        // Exemple de jeu Tic-Tac-Toe
+        char[][] board = {
+            {'X', 'O', 'X'},
+            {'O', 'O', 'X'},
+            {' ', ' ', ' '}
+        };
+        
+        char player = 'X';
+        int bestMove = getBestMove(board, player);
+        
+        System.out.println("Le meilleur coup pour le joueur " + player + " est : " + bestMove);
+    }
+
+    public static int getBestMove(char[][] board, char player) {
+        int bestScore = Integer.MIN_VALUE;
+        int bestMove = -1;
+
+        for (int move : getAvailableMoves(board)) {
+            char[][] newBoard = makeMove(board, move, player);
+            int score = minimax(newBoard, MAX_DEPTH, false);
+
+            if (score > bestScore) {
+                bestScore = score;
+                bestMove = move;
+            }
+        }
+
+        return bestMove;
+    }
+
+    public static int minimax(char[][] board, int depth, boolean isMaximizingPlayer) {
+        if (depth == 0 || isGameOver(board)) {
+            return evaluate(board);
+        }
+
+        if (isMaximizingPlayer) {
+            int maxScore = Integer.MIN_VALUE;
+
+            for (int move : getAvailableMoves(board)) {
+                char[][] newBoard = makeMove(board, move, 'X');
+                int score = minimax(newBoard, depth - 1, false);
+                maxScore = Math.max(maxScore, score);
+            }
+
+            return maxScore;
+        } else {
+            int minScore = Integer.MAX_VALUE;
+
+            for (int move : getAvailableMoves(board)) {
+                char[][] newBoard = makeMove(board, move, 'O');
+                int score = minimax(newBoard, depth - 1, true);
+                minScore = Math.min(minScore, score);
+            }
+
+            return minScore;
+        }
+    }
+
+    public static List<Integer> getAvailableMoves(char[][] board) {
+        List<Integer> moves = new ArrayList<>();
+
+        for (int i = 0; i < 9; i++) {
+            int row = i / 3;
+            int col = i % 3;
+            if (board[row][col] == ' ') {
+                moves.add(i);
+            }
+        }
+
+        return moves;
+    }
+
+    public static char[][] makeMove(char[][] board, int move, char player) {
+        int row = move / 3;
+        int col = move % 3;
+
+        char[][] newBoard = new char[3][3];
+        for (int i = 0; i < 3; i++) {
+            System.arraycopy(board[i], 0, newBoard[i], 0, 3);
+        }
+
+        newBoard[row][col] = player;
+        return newBoard;
+    }
+
+    public static boolean isGameOver(char[][] board) {
+        // Vérifiez ici les conditions de fin de jeu spécifiques à votre jeu
+        // Par exemple, pour le Tic-Tac-Toe, vous pouvez vérifier les combinaisons gagnantes ou si le tableau est rempli
+        // Retourne true si le jeu est terminé, sinon false
+        return false;
+    }
+
+    public static int evaluate(char[][] board) {
+        // Évaluez ici la situation du plateau de
+}
+}
+}
